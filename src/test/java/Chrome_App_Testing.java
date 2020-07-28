@@ -15,7 +15,7 @@ import io.appium.java_client.android.AndroidElement;
 public class Chrome_App_Testing extends Base{
 
 	@Test
-	 public void calculator() throws Exception
+	 public void chromeTesting() throws Exception
 	{
 		AndroidDriver<MobileElement> driver= basecall_RealDevice_Chrome();	
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

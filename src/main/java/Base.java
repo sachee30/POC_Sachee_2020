@@ -16,14 +16,14 @@ public class Base {
 		
 	public AndroidDriver<MobileElement>  basecall() throws Exception
 		{
-		DesiredCapabilities DC=new DesiredCapabilities();
-		DC.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-		DC.setCapability(MobileCapabilityType.DEVICE_NAME,"EmuL");
-		DC.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.androidsample.generalstore");
-		DC.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.androidsample.generalstore.SplashActivity");
-		DC.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "25");
+		DesiredCapabilities cap=new DesiredCapabilities();
+		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
+		cap.setCapability(MobileCapabilityType.DEVICE_NAME,"EmuL");
+		cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.androidsample.generalstore");
+		cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.androidsample.generalstore.SplashActivity");
+		cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "25");
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
-		driver=new AndroidDriver<>(url,DC);
+		driver=new AndroidDriver<>(url,cap);
 		System.out.println("Application started");
 		return driver;
 		}
@@ -62,13 +62,12 @@ public class Base {
 	public AndroidDriver<MobileElement>  basecall_RealDevice_Chrome() throws Exception
 	{
 		
-		DesiredCapabilities cap = new DesiredCapabilities();
-		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "vivo 1713");
-		cap.setCapability(MobileCapabilityType.UDID, "FXYDU17904002436");
-		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
-		cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.android.chrome");
-		cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.google.android.apps.chrome.Main");
+		DesiredCapabilities cap=new DesiredCapabilities();
+		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
+		cap.setCapability(MobileCapabilityType.DEVICE_NAME,"EmuL");
+		cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
+		cap.setCapability("chromedriverExecutable", "C:\\DRIVERS\\chromedriver.exe");
+		cap.setCapability(CapabilityType.VERSION, "9");
 		
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
 		driver = new AndroidDriver<MobileElement>(url, cap);
